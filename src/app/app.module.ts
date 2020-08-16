@@ -24,8 +24,8 @@ const config = {
 };
 @NgModule({
   declarations: [
-    AppComponent,
     LoginComponent,
+    AppComponent,
   ],
   imports: [
     BrowserModule,
