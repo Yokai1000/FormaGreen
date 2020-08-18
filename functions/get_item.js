@@ -1,4 +1,4 @@
-let get_db = require("../functions/get_db")
+let {get_admin, get_db} = require("../functions/get_db")
 let db = get_db()
 
 let default_on_success = function(obj) {
@@ -14,5 +14,15 @@ let get_item = function get_item(class_name, class_, guid, on_success=default_on
     return obj
   })
 }
-module.exports = get_item
+let item_exists = function item_exists(class_name, class_, guid, on_exists=function(){}, on_not=function(){}) {
+  db.ref(class_name + "/" + guid).once("value").then(function(snapshot){
+    let exists = snapshot.exists()
+    if (exists) {
+      on_exists(snapshot)
+    } else {
+      on_not(class_name, class_, guid)
+    }
+  })
+}
+module.exports = {get_item, item_exists}
 

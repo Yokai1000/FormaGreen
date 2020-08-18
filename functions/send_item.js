@@ -1,4 +1,4 @@
-let get_db = require("../functions/get_db")
+let {get_admin, get_db} = require("../functions/get_db")
 let db = get_db()
 
 let default_on_success = function() {
