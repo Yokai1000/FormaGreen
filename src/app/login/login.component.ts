@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-// import { AlertService, AuthenticationService } from '@/_services';
+import { AlertService, AuthenticationService } from '../_services';
 
 @Component({
     selector: 'login-root',
@@ -19,13 +19,13 @@ export class LoginComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        // private authenticationService: AuthenticationService,
-        // private alertService: AlertService
+        private authenticationService: AuthenticationService,
+        private alertService: AlertService
     ) {
-        // redirect to home if already logged in
-        // if (this.authenticationService.currentUserValue) { 
-        //     this.router.navigate(['/']);
-        // }
+        //redirect to home if already logged in
+        if (this.authenticationService.currentUserValue) { 
+            this.router.navigate(['/']);
+        }
     }
 
     ngOnInit() {
