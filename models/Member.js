@@ -1,7 +1,4 @@
-const send_item = require("../functions/send_item")
 const {get_item, item_exists} = require("../functions/get_item")
-const remove_item = require("../functions/remove_item")
-const get_all = require("../functions/get_all")
 const Subscription = require("../models/Subscription")
 
 class Member {

@@ -1,12 +1,8 @@
 const { v4: uuidv4 } = require('uuid');
-const send_item = require("../functions/send_item")
-const {get_item, item_exists} = require("../functions/get_item")
 
 const green_area_types = {
   SCHOOL: "School",
-  UNIVERSITY: "University",
-  TRAINING_SCHOOL: "Training School",
-  TRAINING_CENTER: "Training Center"
+  UNIVERSITY: "University"
 }
 
 class GreenArea {

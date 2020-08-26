@@ -1,6 +1,4 @@
 const { v4: uuidv4 } = require('uuid');
-const send_item = require("../functions/send_item")
-const {get_item, item_exists} = require("../functions/get_item")
 
 const subscription_duration_months = 6
 const subscription_duration_ms = subscription_duration_months * 2628000
