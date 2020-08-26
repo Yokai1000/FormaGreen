@@ -11,6 +11,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 // 2. Add your credentials from step 1
 const config = {
@@ -26,6 +27,7 @@ const config = {
   declarations: [
     LoginComponent,
     AppComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
