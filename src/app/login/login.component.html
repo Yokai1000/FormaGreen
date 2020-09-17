@@ -33,20 +33,21 @@
             </div>
             <div class="card-body">
               <h5 class="card-title text-center">Login</h5>
-              <form class="form-signin">
+              <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div class="form-label-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                  <input type="email" formControlName="username" id="inputEmail" class="form-control" placeholder="Email address"  required>
                   <label for="inputEmail">Email address</label>
                 </div>
                 
                 <hr>
   
                 <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                  <input type="password" formControlName="password" id="inputPassword" class="form-control" placeholder="Password"  required>
                   <label for="inputPassword">Password</label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
                 <hr class="my-4">
+                <button class="btn btn-lg btn-danger btn-block text-uppercase" (click)="onClickLoginGoogle()">Login With Google</button>
               </form>
             </div>
           </div>

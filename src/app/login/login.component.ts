@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { auth } from 'firebase/app'
 import { first } from 'rxjs/operators';
 
 import { AlertService, AuthenticationService } from '../_services';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
     selector: 'login-root',
@@ -19,13 +21,14 @@ export class LoginComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private authenticationService: AuthenticationService,
-        private alertService: AlertService
+        // private authenticationService: AuthenticationService,
+        private alertService: AlertService,
+        private afAuth: AngularFireAuth,
     ) {
         //redirect to home if already logged in
-        if (this.authenticationService.currentUserValue) { 
-            this.router.navigate(['/']);
-        }
+        // if (this.authenticationService.currentUserValue) { 
+        //     this.router.navigate(['/']);
+        // }
     }
 
     ngOnInit() {
@@ -45,11 +48,11 @@ export class LoginComponent implements OnInit {
         this.submitted = true;
 
         // stop here if form is invalid
-        if (this.loginForm.invalid) {
-            return;
-        }
+        // if (this.loginForm.invalid) {
+        //     return;
+        // }
 
-        this.loading = true;
+        // this.loading = true;
         // this.authenticationService.login(this.f.username.value, this.f.password.value)
         //     .pipe(first())
         //     .subscribe(
@@ -60,5 +63,11 @@ export class LoginComponent implements OnInit {
         //             this.alertService.error(error);
         //             this.loading = false;
         //         });
+        console.log('Username : ', this.f.username.value);
+        console.log('Password : ', this.f.password.value);
+    }
+
+    onClickLoginGoogle(){
+        return this.afAuth.signInWithPopup(new auth.GoogleAuthProvider());
     }
 }
